@@ -14,7 +14,7 @@ namespace ModeloDual_NET_Framework
         [STAThread]
         static void Main()
         {
-            Conexion con = new Conexion();
+            ConexionActividad con = new ConexionActividad();
 
             //Console.WriteLine("El servidor es: ");
             //Console.WriteLine(con.retornarMensaje());

@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace ModeloDual_NET_Framework
 {
-    internal class Conexion
+    internal class ConexionActividad
     {
         private String mensaje;
-        public Conexion()
+        public ConexionActividad()
         {
             String servidor = "localhost",
                     puerto = "3306",
