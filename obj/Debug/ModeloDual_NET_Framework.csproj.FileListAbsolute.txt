@@ -21,3 +21,4 @@ C:\Programs\NET\ModeloDual_NET_Framework\bin\Debug\MySql.Data.xml
 C:\Programs\NET\ModeloDual_NET_Framework\obj\Debug\ModeloDual_NET_Framework.csproj.CopyComplete
 C:\Programs\NET\ModeloDual_NET_Framework\obj\Debug\ModeloDual_NET_Framework.exe
 C:\Programs\NET\ModeloDual_NET_Framework\obj\Debug\ModeloDual_NET_Framework.pdb
+C:\Programs\NET\ModeloDual_NET_Framework\obj\Debug\ModeloDual_NET_Framework.Form1.resources

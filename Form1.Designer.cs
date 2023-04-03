@@ -30,20 +30,20 @@
         {
             this.btnBuscarAct = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLimpiarAct = new System.Windows.Forms.Button();
+            this.btnEliminarAct = new System.Windows.Forms.Button();
+            this.btnActualizarAct = new System.Windows.Forms.Button();
+            this.btnGuardarAct = new System.Windows.Forms.Button();
+            this.cboxTema = new System.Windows.Forms.ComboBox();
+            this.tBoxDescAct = new System.Windows.Forms.TextBox();
+            this.tboxHorasAct = new System.Windows.Forms.TextBox();
+            this.tboxNombreAct = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tboxNoAct = new System.Windows.Forms.TextBox();
-            this.tbpxNombreAct = new System.Windows.Forms.TextBox();
-            this.tboxHorasAct = new System.Windows.Forms.TextBox();
-            this.tBoxDescAct = new System.Windows.Forms.TextBox();
-            this.cboxTema = new System.Windows.Forms.ComboBox();
-            this.btnGuardarAct = new System.Windows.Forms.Button();
-            this.btnActualizarAct = new System.Windows.Forms.Button();
-            this.btnEliminarAct = new System.Windows.Forms.Button();
-            this.btnLimpiarAct = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.btnBuscarAct.TabIndex = 0;
             this.btnBuscarAct.Text = "Buscar";
             this.btnBuscarAct.UseVisualStyleBackColor = true;
+            this.btnBuscarAct.Click += new System.EventHandler(this.btnBuscarAct_Click);
             // 
             // groupBox1
             // 
@@ -65,7 +66,7 @@
             this.groupBox1.Controls.Add(this.cboxTema);
             this.groupBox1.Controls.Add(this.tBoxDescAct);
             this.groupBox1.Controls.Add(this.tboxHorasAct);
-            this.groupBox1.Controls.Add(this.tbpxNombreAct);
+            this.groupBox1.Controls.Add(this.tboxNombreAct);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -79,6 +80,72 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actividades";
+            // 
+            // btnLimpiarAct
+            // 
+            this.btnLimpiarAct.Location = new System.Drawing.Point(390, 382);
+            this.btnLimpiarAct.Name = "btnLimpiarAct";
+            this.btnLimpiarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiarAct.TabIndex = 14;
+            this.btnLimpiarAct.Text = "Limpiar";
+            this.btnLimpiarAct.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarAct
+            // 
+            this.btnEliminarAct.Location = new System.Drawing.Point(276, 382);
+            this.btnEliminarAct.Name = "btnEliminarAct";
+            this.btnEliminarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarAct.TabIndex = 13;
+            this.btnEliminarAct.Text = "Eliminar";
+            this.btnEliminarAct.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarAct
+            // 
+            this.btnActualizarAct.Location = new System.Drawing.Point(159, 382);
+            this.btnActualizarAct.Name = "btnActualizarAct";
+            this.btnActualizarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizarAct.TabIndex = 12;
+            this.btnActualizarAct.Text = "Actualizar";
+            this.btnActualizarAct.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardarAct
+            // 
+            this.btnGuardarAct.Location = new System.Drawing.Point(31, 382);
+            this.btnGuardarAct.Name = "btnGuardarAct";
+            this.btnGuardarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarAct.TabIndex = 11;
+            this.btnGuardarAct.Text = "Guardar";
+            this.btnGuardarAct.UseVisualStyleBackColor = true;
+            // 
+            // cboxTema
+            // 
+            this.cboxTema.FormattingEnabled = true;
+            this.cboxTema.Location = new System.Drawing.Point(159, 59);
+            this.cboxTema.Name = "cboxTema";
+            this.cboxTema.Size = new System.Drawing.Size(146, 21);
+            this.cboxTema.TabIndex = 10;
+            // 
+            // tBoxDescAct
+            // 
+            this.tBoxDescAct.Location = new System.Drawing.Point(114, 238);
+            this.tBoxDescAct.Multiline = true;
+            this.tBoxDescAct.Name = "tBoxDescAct";
+            this.tBoxDescAct.Size = new System.Drawing.Size(237, 122);
+            this.tBoxDescAct.TabIndex = 9;
+            // 
+            // tboxHorasAct
+            // 
+            this.tboxHorasAct.Location = new System.Drawing.Point(208, 178);
+            this.tboxHorasAct.Name = "tboxHorasAct";
+            this.tboxHorasAct.Size = new System.Drawing.Size(56, 20);
+            this.tboxHorasAct.TabIndex = 8;
+            // 
+            // tboxNombreAct
+            // 
+            this.tboxNombreAct.Location = new System.Drawing.Point(190, 123);
+            this.tboxNombreAct.Name = "tboxNombreAct";
+            this.tboxNombreAct.Size = new System.Drawing.Size(142, 20);
+            this.tboxNombreAct.TabIndex = 7;
             // 
             // label5
             // 
@@ -133,72 +200,6 @@
             this.tboxNoAct.Size = new System.Drawing.Size(40, 20);
             this.tboxNoAct.TabIndex = 1;
             // 
-            // tbpxNombreAct
-            // 
-            this.tbpxNombreAct.Location = new System.Drawing.Point(190, 123);
-            this.tbpxNombreAct.Name = "tbpxNombreAct";
-            this.tbpxNombreAct.Size = new System.Drawing.Size(142, 20);
-            this.tbpxNombreAct.TabIndex = 7;
-            // 
-            // tboxHorasAct
-            // 
-            this.tboxHorasAct.Location = new System.Drawing.Point(208, 178);
-            this.tboxHorasAct.Name = "tboxHorasAct";
-            this.tboxHorasAct.Size = new System.Drawing.Size(56, 20);
-            this.tboxHorasAct.TabIndex = 8;
-            // 
-            // tBoxDescAct
-            // 
-            this.tBoxDescAct.Location = new System.Drawing.Point(114, 238);
-            this.tBoxDescAct.Multiline = true;
-            this.tBoxDescAct.Name = "tBoxDescAct";
-            this.tBoxDescAct.Size = new System.Drawing.Size(237, 122);
-            this.tBoxDescAct.TabIndex = 9;
-            // 
-            // cboxTema
-            // 
-            this.cboxTema.FormattingEnabled = true;
-            this.cboxTema.Location = new System.Drawing.Point(159, 59);
-            this.cboxTema.Name = "cboxTema";
-            this.cboxTema.Size = new System.Drawing.Size(146, 21);
-            this.cboxTema.TabIndex = 10;
-            // 
-            // btnGuardarAct
-            // 
-            this.btnGuardarAct.Location = new System.Drawing.Point(31, 382);
-            this.btnGuardarAct.Name = "btnGuardarAct";
-            this.btnGuardarAct.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardarAct.TabIndex = 11;
-            this.btnGuardarAct.Text = "Guardar";
-            this.btnGuardarAct.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizarAct
-            // 
-            this.btnActualizarAct.Location = new System.Drawing.Point(159, 382);
-            this.btnActualizarAct.Name = "btnActualizarAct";
-            this.btnActualizarAct.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizarAct.TabIndex = 12;
-            this.btnActualizarAct.Text = "Actualizar";
-            this.btnActualizarAct.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarAct
-            // 
-            this.btnEliminarAct.Location = new System.Drawing.Point(276, 382);
-            this.btnEliminarAct.Name = "btnEliminarAct";
-            this.btnEliminarAct.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminarAct.TabIndex = 13;
-            this.btnEliminarAct.Text = "Eliminar";
-            this.btnEliminarAct.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpiarAct
-            // 
-            this.btnLimpiarAct.Location = new System.Drawing.Point(390, 382);
-            this.btnLimpiarAct.Name = "btnLimpiarAct";
-            this.btnLimpiarAct.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiarAct.TabIndex = 14;
-            this.btnLimpiarAct.Text = "Limpiar";
-            this.btnLimpiarAct.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,7 +227,7 @@
         private System.Windows.Forms.ComboBox cboxTema;
         private System.Windows.Forms.TextBox tBoxDescAct;
         private System.Windows.Forms.TextBox tboxHorasAct;
-        private System.Windows.Forms.TextBox tbpxNombreAct;
+        private System.Windows.Forms.TextBox tboxNombreAct;
         private System.Windows.Forms.Button btnLimpiarAct;
         private System.Windows.Forms.Button btnEliminarAct;
         private System.Windows.Forms.Button btnActualizarAct;

@@ -8,8 +8,30 @@ using System.Windows.Forms;
 
 namespace ModeloDual_NET_Framework.Modelos.Cursos
 {
-    internal class ConsultaActividad
+    internal class ConsultaActividad : Conexion
     {
+
+        public Boolean buscarActividad(Actividad actividad, Tema tema)
+        {
+            actividad.Nombre = "Mario";
+            actividad.Calificacion = 10;
+            actividad.Descripcion = "Miau";
+            
+
+            return false;
+        }
+
+
+
+        public Boolean printNombre(Form1 formulario)
+        {
+
+            return true;
+        }
+
+
+
+
         public Boolean insertarActividad(Actividad actividad, Tema tema)
         {
             Boolean respuesta = false;
