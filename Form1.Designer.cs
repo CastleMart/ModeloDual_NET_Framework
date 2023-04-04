@@ -122,6 +122,8 @@
             // 
             // cboxTema
             // 
+            this.cboxTema.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cboxTema.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.cboxTema.FormattingEnabled = true;
             this.cboxTema.Location = new System.Drawing.Point(159, 59);
             this.cboxTema.Name = "cboxTema";
@@ -199,6 +201,7 @@
             // 
             // tboxNoAct
             // 
+            this.tboxNoAct.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tboxNoAct.Location = new System.Drawing.Point(144, 123);
             this.tboxNoAct.Name = "tboxNoAct";
             this.tboxNoAct.Size = new System.Drawing.Size(40, 20);

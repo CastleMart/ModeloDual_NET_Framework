@@ -24,6 +24,7 @@ namespace ModeloDual_NET_Framework
         {
             InitializeComponent();
             categoriasTemas();
+            this.Text = "Actividades Modelo Dual";
         }
 
         private Boolean MessageBoxBtnAceptar_cancelar_Click(object sender, EventArgs e)
