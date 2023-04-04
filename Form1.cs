@@ -16,7 +16,7 @@ namespace ModeloDual_NET_Framework
 
         private Actividad act =  new Actividad();
         private Tema tema = new Tema();
-        private ConsultaActividad consulta;
+        private ConsultaActividad consulta = new ConsultaActividad ();
 
         
         public Form1()
@@ -24,9 +24,13 @@ namespace ModeloDual_NET_Framework
             InitializeComponent();
         }
 
-        public string getNombre()
+        public void limpiarCajas()
         {
-            return tboxNombreAct.Text;
+            //tboxNoAct.Text = "";
+            tboxNombreAct.Text = "";
+            tboxHorasAct.Text = "";
+            tBoxDescAct.Text = "";
+            
         }
 
 
@@ -37,13 +41,32 @@ namespace ModeloDual_NET_Framework
 
         private void btnBuscarAct_Click(object sender, EventArgs e)
         {
-            act.Id = Int16.Parse(tboxNoAct.Text);
-            tema.Id = 1;
 
-            consulta.buscarActividad(act, tema);
-            tboxNombreAct.Text = act.Nombre;
-            tBoxDescAct.Text = act.Descripcion;
-            tboxHorasAct.Text = act.Horas.ToString();
+            
+            try
+            {
+                act.Id = int.Parse(tboxNoAct.Text);
+                tema.Id = 1;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            limpiarCajas();
+
+            if (consulta.buscarActividad(act, tema))
+            {
+                
+                tboxNoAct.Text = act.Id.ToString();
+                tboxNombreAct.Text = act.Nombre;
+                tBoxDescAct.Text = act.Descripcion;
+                tboxHorasAct.Text = act.Horas.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No existe el registro solicitado.");
+            }
+            
             
         }
 

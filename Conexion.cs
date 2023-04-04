@@ -17,7 +17,7 @@ namespace ModeloDual_NET_Framework
             String servidor = "localhost",
                     puerto = "3306",
                     usuario = "root",
-                    bd = "modelodual_bd",
+                    bd = "modelodual_db",
                     password = "marioantonio2312",
                     cadenaConexion,
                     datos = "";

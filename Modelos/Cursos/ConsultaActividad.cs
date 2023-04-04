@@ -10,15 +10,53 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
 {
     internal class ConsultaActividad : Conexion
     {
-
+        /// <summary>
+        /// Método que realiza una consulta de búsqueda según el id de la actividad y el tema.
+        /// </summary>
+        /// <param name="actividad"></param>
+        /// <param name="tema"></param>
+        /// <returns>todos los valores de la tabla actividad de la base de datos.</returns>
         public Boolean buscarActividad(Actividad actividad, Tema tema)
         {
-            actividad.Nombre = "Mario";
-            actividad.Calificacion = 10;
-            actividad.Descripcion = "Miau";
+            Boolean seHizo =  false;
+            string sql = "Select * FROM actividad, tema WHERE actividad.idActividad = " + actividad.Id + " and actividad.idTema = " + tema.Id + " and actividad.idTema = tema.idTema";
+            MySqlDataReader reader = null;
+            MySqlConnection conn = Conexion.conectar();
             
 
-            return false;
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                reader = cmd.ExecuteReader();
+                //actividad.limpiarActividades();
+                if (reader.HasRows)
+                {
+                    seHizo = true;
+                    while (reader.Read())
+                    {
+                        
+                        actividad.Id = int.Parse(reader.GetString(0));
+                        actividad.Nombre = reader.GetString(1);
+                        actividad.Horas = double.Parse(reader.GetString(2));
+                        actividad.Descripcion = reader.GetString(3);
+                        tema.Id = int.Parse(reader.GetString(4));
+                        
+                    }
+                }
+
+                
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                reader.Close();
+            }
+
+            return seHizo;
         }
 
 

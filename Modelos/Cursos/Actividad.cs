@@ -31,5 +31,13 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public double Horas { get => horas; set => horas = value; }
         public double Calificacion { get => calificacion; set => calificacion = value; }
+        public void limpiarActividades()
+        {
+            this.Id = -1;
+            this.Nombre = "";
+            this.Descripcion = "";
+            this.Horas = -1;
+            this.Calificacion = -1;
+        }
     }
 }
