@@ -17,11 +17,30 @@ namespace ModeloDual_NET_Framework
         private Actividad act =  new Actividad();
         private Tema tema = new Tema();
         private ConsultaActividad consulta = new ConsultaActividad ();
+        private DataTable dt = new DataTable ();
 
         
         public Form1()
         {
             InitializeComponent();
+            categoriasTemas();
+        }
+
+        public void categoriasTemas()
+        {
+            cboxTema.DataSource = null;
+            cboxTema.Items.Clear ();
+
+            try
+            {
+                consulta.busquedaTemaComboBox(dt);
+                cboxTema.ValueMember = "idTema";
+                cboxTema.DisplayMember = "nombreTema";
+                cboxTema.DataSource = dt;
+            }catch (Exception ex)
+            {
+                MessageBox.Show(Text, ex.Message);
+            }
         }
 
         public void limpiarCajas()

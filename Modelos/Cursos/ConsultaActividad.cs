@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,36 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
 {
     internal class ConsultaActividad : Conexion
     {
+
+        public Boolean busquedaTemaComboBox(DataTable dt)
+        {
+            Boolean seHizo = true;
+
+            string sql = " SELECT idTema, nombreTema from tema;";
+
+            MySqlConnection con = Conexion.conectar();
+
+            try
+            {
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql,con); 
+                MySqlDataAdapter data = new MySqlDataAdapter(cmd);
+                data.Fill(dt);
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+            return seHizo;
+        }
+
         /// <summary>
         /// Método que realiza una consulta de búsqueda según el id de la actividad y el tema.
         /// </summary>
@@ -44,8 +75,6 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
                         
                     }
                 }
-
-                
 
             }catch (Exception ex)
             {
