@@ -97,7 +97,7 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
         /// </summary>
         /// <param name="actividad"></param>
         /// <param name="tema"></param>
-        /// <returns>Regresa como respuesta verdadero o falso si se pudo realizar la insersión</returns>
+        /// <returns>Regresa como respuesta verdadero o falso si se pudo realizar la inserción</returns>
         public Boolean insertarActividad(Actividad actividad, Tema tema)
         {
             Boolean respuesta = false;
@@ -128,6 +128,39 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
             return respuesta;
 
         }
+
+        public Boolean eliminarActividad(Actividad actividad, Tema tema)
+        {
+            Boolean respuesta = false;
+
+            String sql = "DELETE FROM actividad  WHERE actividad.idActividad = " + actividad.Id + " and actividad.idTema = " + tema.Id + "";
+
+            MySqlConnection conexionBD = Conexion.conectar();
+            conexionBD.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conexionBD);
+                cmd.ExecuteNonQuery();
+                //MessageBox.Show("Se ha guardado el registro.");
+                respuesta = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+            }
+            finally
+            {
+                conexionBD.Close();
+
+            }
+
+            return respuesta;
+
+        }
+
+
 
 
     }

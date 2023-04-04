@@ -26,6 +26,14 @@ namespace ModeloDual_NET_Framework
             categoriasTemas();
         }
 
+        private Boolean MessageBoxBtnAceptar_cancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado;
+            resultado = MessageBox.Show("¡¡¿Desea eliminar registro permanentemente?!!", "Eliminación de registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            return resultado == DialogResult.OK;
+        }
+
         /// <summary>
         /// Método que muestra en pantalla las diferentes opciones de temas disponibles.
         /// </summary>
@@ -61,10 +69,15 @@ namespace ModeloDual_NET_Framework
 
         }
 
+        /// <summary>
+        /// Método que realiza las opciones del botón buscar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscarAct_Click(object sender, EventArgs e)
         {
-
             
+                        
             try
             {
                 act.Id = int.Parse(tboxNoAct.Text);
@@ -92,6 +105,11 @@ namespace ModeloDual_NET_Framework
             
         }
 
+        /// <summary>
+        /// Método que realiza las acciones del botón guardar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarAct_Click(object sender, EventArgs e)
         {
             try
@@ -112,14 +130,48 @@ namespace ModeloDual_NET_Framework
             {
                 MessageBox.Show("Se ha guardado el registro correctamente.");
             }
-            
-            
+                       
 
         }
 
+        /// <summary>
+        /// Método realiza ciertas acciones al seleccionar un nuevo elemento del combo box tema.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboxTema_SelectedIndexChanged(object sender, EventArgs e)
         {
             limpiarCajas();
         }
+
+        /// <summary>
+        /// Método que elimina una actividad.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEliminarAct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
+                act.Id = int.Parse(tboxNoAct.Text);
+
+                if (MessageBoxBtnAceptar_cancelar_Click(sender, e))
+                {
+                    if (consulta.eliminarActividad(act, tema))
+                    {
+                        limpiarCajas();
+                        MessageBox.Show("Se ha eliminado el registro.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            
+        }
+
     }
 }

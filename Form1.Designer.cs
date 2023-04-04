@@ -98,6 +98,7 @@
             this.btnEliminarAct.TabIndex = 13;
             this.btnEliminarAct.Text = "Eliminar";
             this.btnEliminarAct.UseVisualStyleBackColor = true;
+            this.btnEliminarAct.Click += new System.EventHandler(this.btnEliminarAct_Click);
             // 
             // btnActualizarAct
             // 
