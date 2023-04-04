@@ -173,5 +173,15 @@ namespace ModeloDual_NET_Framework
             
         }
 
+        /// <summary>
+        /// Método que limpiar el formulario al hacer click el bontón limpiar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLimpiarAct_Click(object sender, EventArgs e)
+        {
+            tboxNoAct.Text = "";
+            limpiarCajas();
+        }
     }
 }
