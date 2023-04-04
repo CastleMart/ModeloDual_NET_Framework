@@ -116,6 +116,7 @@
             this.btnGuardarAct.TabIndex = 11;
             this.btnGuardarAct.Text = "Guardar";
             this.btnGuardarAct.UseVisualStyleBackColor = true;
+            this.btnGuardarAct.Click += new System.EventHandler(this.btnGuardarAct_Click);
             // 
             // cboxTema
             // 
@@ -124,6 +125,7 @@
             this.cboxTema.Name = "cboxTema";
             this.cboxTema.Size = new System.Drawing.Size(146, 21);
             this.cboxTema.TabIndex = 10;
+            this.cboxTema.SelectedIndexChanged += new System.EventHandler(this.cboxTema_SelectedIndexChanged);
             // 
             // tBoxDescAct
             // 

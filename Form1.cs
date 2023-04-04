@@ -26,6 +26,9 @@ namespace ModeloDual_NET_Framework
             categoriasTemas();
         }
 
+        /// <summary>
+        /// Método que muestra en pantalla las diferentes opciones de temas disponibles.
+        /// </summary>
         public void categoriasTemas()
         {
             cboxTema.DataSource = null;
@@ -65,7 +68,7 @@ namespace ModeloDual_NET_Framework
             try
             {
                 act.Id = int.Parse(tboxNoAct.Text);
-                tema.Id = 1;
+                tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
             }
             catch(Exception ex)
             {
@@ -89,7 +92,34 @@ namespace ModeloDual_NET_Framework
             
         }
 
+        private void btnGuardarAct_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
+                tema.Id =  int.Parse(cboxTema.SelectedValue.ToString());
+                act.Id = int.Parse(tboxNoAct.Text);
+                act.Nombre = tboxNombreAct.Text;
+                act.Descripcion = tBoxDescAct.Text;
+                act.Horas = double.Parse(tboxHorasAct.Text);
 
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (consulta.insertarActividad(act, tema))
+            {
+                MessageBox.Show("Se ha guardado el registro correctamente.");
+            }
+            
+            
+
+        }
+
+        private void cboxTema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            limpiarCajas();
+        }
     }
 }

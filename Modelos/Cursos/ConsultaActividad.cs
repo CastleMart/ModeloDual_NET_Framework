@@ -12,6 +12,11 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
     internal class ConsultaActividad : Conexion
     {
 
+        /// <summary>
+        /// Método que realiza uan consulta de los diferentes temas que existen en la base de datos.
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns>Una tabla de temas existentes en la base de datos.</returns>
         public Boolean busquedaTemaComboBox(DataTable dt)
         {
             Boolean seHizo = true;
@@ -22,7 +27,6 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
 
             try
             {
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(sql,con); 
                 MySqlDataAdapter data = new MySqlDataAdapter(cmd);
@@ -88,17 +92,12 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
             return seHizo;
         }
 
-
-
-        public Boolean printNombre(Form1 formulario)
-        {
-
-            return true;
-        }
-
-
-
-
+        /// <summary>
+        /// Inserción de una actividad nueva.
+        /// </summary>
+        /// <param name="actividad"></param>
+        /// <param name="tema"></param>
+        /// <returns>Regresa como respuesta verdadero o falso si se pudo realizar la insersión</returns>
         public Boolean insertarActividad(Actividad actividad, Tema tema)
         {
             Boolean respuesta = false;
@@ -113,7 +112,7 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conexionBD);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Se ha guardado el registro.");
+                //MessageBox.Show("Se ha guardado el registro.");
                 respuesta = true;
                 
             }catch (Exception ex)
