@@ -70,7 +70,7 @@ namespace ModeloDual_NET_Framework
         {
             labelMensajeEstado.Text = mensaje;
             labelMensajeEstado.Visible = true;
-            labelMensajeEstado.ForeColor = Color.Yellow;
+            labelMensajeEstado.ForeColor = Color.Orange;
         }
         private void labelEstadoMensajeNormal(String mensaje)
         {
@@ -128,14 +128,18 @@ namespace ModeloDual_NET_Framework
             {
                 act.Id = int.Parse(tboxNoAct.Text);
                 tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
+                labelEstadoLimpiar();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             limpiarCajas();
-
-            if (consulta.buscarActividad(act, tema))
+            if (act.Id <= 0)
+            {
+                labelEstadoMensajeError("El id debe ser mayor a 0");
+            }
+            else if (consulta.buscarActividad(act, tema))
             {
                 
                 tboxNoAct.Text = act.Id.ToString();
@@ -168,7 +172,11 @@ namespace ModeloDual_NET_Framework
                 act.Descripcion = tBoxDescAct.Text;
                 act.Horas = double.Parse(tboxHorasAct.Text);
 
-                if (consulta.existeActividad(act, tema))
+                if(act.Id <= 0)
+                {
+                    labelEstadoMensajeError("El id debe ser mayor a 0");
+                }
+                else if (consulta.existeActividad(act, tema))
                 {
                     Boolean respuesta = MessageBoxBtnActualizar(sender, e);
                     if (respuesta)
@@ -262,8 +270,9 @@ namespace ModeloDual_NET_Framework
 
         private void tboxNoAct_TextChanged(object sender, EventArgs e)
         {
-            limpiarCajas();
-            labelEstadoLimpiar();
+            //limpiarCajas();
+            labelEstadoMensajeAdvertencia("Id modificado");
+            //labelEstadoLimpiar();
         }
     }
 }

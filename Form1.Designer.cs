@@ -30,9 +30,9 @@
         {
             this.btnBuscarAct = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelMensajeEstado = new System.Windows.Forms.Label();
             this.btnLimpiarAct = new System.Windows.Forms.Button();
             this.btnEliminarAct = new System.Windows.Forms.Button();
-            this.btnActualizarAct = new System.Windows.Forms.Button();
             this.btnGuardarAct = new System.Windows.Forms.Button();
             this.cboxTema = new System.Windows.Forms.ComboBox();
             this.tBoxDescAct = new System.Windows.Forms.TextBox();
@@ -44,18 +44,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tboxNoAct = new System.Windows.Forms.TextBox();
-            this.labelMensajeEstado = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBuscarAct
             // 
+            this.btnBuscarAct.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnBuscarAct.Location = new System.Drawing.Point(451, 57);
             this.btnBuscarAct.Name = "btnBuscarAct";
-            this.btnBuscarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarAct.Size = new System.Drawing.Size(75, 39);
             this.btnBuscarAct.TabIndex = 0;
             this.btnBuscarAct.Text = "Buscar";
-            this.btnBuscarAct.UseVisualStyleBackColor = true;
+            this.btnBuscarAct.UseVisualStyleBackColor = false;
             this.btnBuscarAct.Click += new System.EventHandler(this.btnBuscarAct_Click);
             // 
             // groupBox1
@@ -63,7 +63,6 @@
             this.groupBox1.Controls.Add(this.labelMensajeEstado);
             this.groupBox1.Controls.Add(this.btnLimpiarAct);
             this.groupBox1.Controls.Add(this.btnEliminarAct);
-            this.groupBox1.Controls.Add(this.btnActualizarAct);
             this.groupBox1.Controls.Add(this.btnGuardarAct);
             this.groupBox1.Controls.Add(this.cboxTema);
             this.groupBox1.Controls.Add(this.tBoxDescAct);
@@ -76,6 +75,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tboxNoAct);
             this.groupBox1.Controls.Add(this.btnBuscarAct);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(123, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(536, 426);
@@ -83,11 +83,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actividades";
             // 
+            // labelMensajeEstado
+            // 
+            this.labelMensajeEstado.AutoSize = true;
+            this.labelMensajeEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMensajeEstado.Location = new System.Drawing.Point(6, 16);
+            this.labelMensajeEstado.Name = "labelMensajeEstado";
+            this.labelMensajeEstado.Size = new System.Drawing.Size(57, 20);
+            this.labelMensajeEstado.TabIndex = 15;
+            this.labelMensajeEstado.Text = "label6";
+            // 
             // btnLimpiarAct
             // 
-            this.btnLimpiarAct.Location = new System.Drawing.Point(436, 382);
+            this.btnLimpiarAct.Location = new System.Drawing.Point(377, 366);
             this.btnLimpiarAct.Name = "btnLimpiarAct";
-            this.btnLimpiarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiarAct.Size = new System.Drawing.Size(75, 39);
             this.btnLimpiarAct.TabIndex = 14;
             this.btnLimpiarAct.Text = "Limpiar";
             this.btnLimpiarAct.UseVisualStyleBackColor = true;
@@ -95,41 +105,34 @@
             // 
             // btnEliminarAct
             // 
-            this.btnEliminarAct.Location = new System.Drawing.Point(322, 382);
+            this.btnEliminarAct.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEliminarAct.Location = new System.Drawing.Point(235, 366);
             this.btnEliminarAct.Name = "btnEliminarAct";
-            this.btnEliminarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarAct.Size = new System.Drawing.Size(75, 39);
             this.btnEliminarAct.TabIndex = 13;
             this.btnEliminarAct.Text = "Eliminar";
-            this.btnEliminarAct.UseVisualStyleBackColor = true;
+            this.btnEliminarAct.UseVisualStyleBackColor = false;
             this.btnEliminarAct.Click += new System.EventHandler(this.btnEliminarAct_Click);
-            // 
-            // btnActualizarAct
-            // 
-            this.btnActualizarAct.Location = new System.Drawing.Point(205, 382);
-            this.btnActualizarAct.Name = "btnActualizarAct";
-            this.btnActualizarAct.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizarAct.TabIndex = 12;
-            this.btnActualizarAct.Text = "Actualizar";
-            this.btnActualizarAct.UseVisualStyleBackColor = true;
             // 
             // btnGuardarAct
             // 
-            this.btnGuardarAct.Location = new System.Drawing.Point(77, 382);
+            this.btnGuardarAct.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGuardarAct.Location = new System.Drawing.Point(77, 366);
             this.btnGuardarAct.Name = "btnGuardarAct";
-            this.btnGuardarAct.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarAct.Size = new System.Drawing.Size(75, 39);
             this.btnGuardarAct.TabIndex = 11;
             this.btnGuardarAct.Text = "Guardar";
-            this.btnGuardarAct.UseVisualStyleBackColor = true;
+            this.btnGuardarAct.UseVisualStyleBackColor = false;
             this.btnGuardarAct.Click += new System.EventHandler(this.btnGuardarAct_Click);
             // 
             // cboxTema
             // 
-            this.cboxTema.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cboxTema.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.cboxTema.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.cboxTema.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cboxTema.FormattingEnabled = true;
-            this.cboxTema.Location = new System.Drawing.Point(205, 59);
+            this.cboxTema.Location = new System.Drawing.Point(190, 59);
             this.cboxTema.Name = "cboxTema";
-            this.cboxTema.Size = new System.Drawing.Size(146, 21);
+            this.cboxTema.Size = new System.Drawing.Size(188, 23);
             this.cboxTema.TabIndex = 10;
             this.cboxTema.SelectedIndexChanged += new System.EventHandler(this.cboxTema_SelectedIndexChanged);
             // 
@@ -145,22 +148,23 @@
             // 
             this.tboxHorasAct.Location = new System.Drawing.Point(254, 178);
             this.tboxHorasAct.Name = "tboxHorasAct";
-            this.tboxHorasAct.Size = new System.Drawing.Size(56, 20);
+            this.tboxHorasAct.Size = new System.Drawing.Size(56, 21);
             this.tboxHorasAct.TabIndex = 8;
             // 
             // tboxNombreAct
             // 
-            this.tboxNombreAct.Location = new System.Drawing.Point(236, 123);
+            this.tboxNombreAct.Location = new System.Drawing.Point(198, 123);
             this.tboxNombreAct.Name = "tboxNombreAct";
-            this.tboxNombreAct.Size = new System.Drawing.Size(142, 20);
+            this.tboxNombreAct.Size = new System.Drawing.Size(216, 21);
             this.tboxNombreAct.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(251, 43);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(266, 43);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Tema";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -168,57 +172,51 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(266, 162);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(264, 160);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(45, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Horas";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(247, 221);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(83, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Descripción";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(286, 97);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(264, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(176, 97);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(139, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(90, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "No. Actividad";
             // 
             // tboxNoAct
             // 
             this.tboxNoAct.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tboxNoAct.Location = new System.Drawing.Point(190, 123);
+            this.tboxNoAct.Location = new System.Drawing.Point(152, 123);
             this.tboxNoAct.Name = "tboxNoAct";
-            this.tboxNoAct.Size = new System.Drawing.Size(40, 20);
+            this.tboxNoAct.Size = new System.Drawing.Size(40, 21);
             this.tboxNoAct.TabIndex = 1;
             this.tboxNoAct.TextChanged += new System.EventHandler(this.tboxNoAct_TextChanged);
-            // 
-            // labelMensajeEstado
-            // 
-            this.labelMensajeEstado.AutoSize = true;
-            this.labelMensajeEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMensajeEstado.Location = new System.Drawing.Point(6, 16);
-            this.labelMensajeEstado.Name = "labelMensajeEstado";
-            this.labelMensajeEstado.Size = new System.Drawing.Size(57, 20);
-            this.labelMensajeEstado.TabIndex = 15;
-            this.labelMensajeEstado.Text = "label6";
             // 
             // Form1
             // 
@@ -250,7 +248,6 @@
         private System.Windows.Forms.TextBox tboxNombreAct;
         private System.Windows.Forms.Button btnLimpiarAct;
         private System.Windows.Forms.Button btnEliminarAct;
-        private System.Windows.Forms.Button btnActualizarAct;
         private System.Windows.Forms.Button btnGuardarAct;
         private System.Windows.Forms.Label labelMensajeEstado;
     }
