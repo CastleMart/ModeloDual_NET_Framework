@@ -45,6 +45,36 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
             return seHizo;
         }
 
+        public Boolean existeActividad(Actividad act, Tema tema)
+        {
+            Boolean existe = false;
+            Boolean seHizo = false;
+            string sql = "Select * FROM actividad, tema WHERE actividad.idActividad = " + act.Id + " and actividad.idTema = " + tema.Id + " and actividad.idTema = tema.idTema";
+            MySqlDataReader reader = null;
+            MySqlConnection conn = Conexion.conectar();
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                reader = cmd.ExecuteReader();
+                //actividad.limpiarActividades();
+                existe = reader.HasRows;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                reader.Close();
+            }
+
+
+            return existe;
+        }
+
         /// <summary>
         /// Método que realiza una consulta de búsqueda según el id de la actividad y el tema.
         /// </summary>
@@ -129,6 +159,36 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
 
         }
 
+        public Boolean actualizarActividad(Actividad actividad, Tema tema)
+        {
+            Boolean respuesta = false;
+
+            String sql = "UPDATE actividad SET nombreAct = '"+actividad.Nombre+"', Horas = '"+actividad.Horas+"', descripcion = '"+actividad.Descripcion+"', idTema = '"+tema.Id+"' WHERE idActividad = '"+actividad.Id+"' and idTema = '"+tema.Id+"'";
+
+            MySqlConnection conexionBD = Conexion.conectar();
+            conexionBD.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, conexionBD);
+                cmd.ExecuteNonQuery();
+                //MessageBox.Show("Se ha guardado el registro.");
+                respuesta = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Actualizar: " + ex.Message);
+            }
+            finally
+            {
+                conexionBD.Close();
+
+            }
+
+            return respuesta;
+
+        }
         public Boolean eliminarActividad(Actividad actividad, Tema tema)
         {
             Boolean respuesta = false;

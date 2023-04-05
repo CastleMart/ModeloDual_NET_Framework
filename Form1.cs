@@ -24,6 +24,7 @@ namespace ModeloDual_NET_Framework
         {
             InitializeComponent();
             categoriasTemas();
+            labelEstadoLimpiar();
             this.Text = "Actividades Modelo Dual";
         }
 
@@ -34,6 +35,50 @@ namespace ModeloDual_NET_Framework
 
             return resultado == DialogResult.OK;
         }
+
+        private Boolean MessageBoxBtnActualizar(object sender, EventArgs e)
+        {
+            DialogResult resultado;
+            resultado = MessageBox.Show("¿Desea actualizar registro?", "Actualización de registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            return resultado == DialogResult.OK;
+        }
+
+
+        private void labelEstadoLimpiar()
+        {
+            labelMensajeEstado.Text = "";
+            labelMensajeEstado.Visible = false;
+            labelMensajeEstado.ForeColor = Color.Black;
+        }
+
+        private void labelEstadoMensajeBueno(String mensaje)
+        {
+            labelMensajeEstado.Text = mensaje;
+            labelMensajeEstado.Visible = true;
+            labelMensajeEstado.ForeColor = Color.Green;
+        }
+
+        private void labelEstadoMensajeError(String mensaje)
+        {
+            labelMensajeEstado.Text = mensaje;
+            labelMensajeEstado.Visible = true;
+            labelMensajeEstado.ForeColor = Color.Red;
+        }
+
+        private void labelEstadoMensajeAdvertencia(String mensaje)
+        {
+            labelMensajeEstado.Text = mensaje;
+            labelMensajeEstado.Visible = true;
+            labelMensajeEstado.ForeColor = Color.Yellow;
+        }
+        private void labelEstadoMensajeNormal(String mensaje)
+        {
+            labelMensajeEstado.Text = mensaje;
+            labelMensajeEstado.Visible = true;
+            labelMensajeEstado.ForeColor = Color.Blue;
+        }
+
 
         /// <summary>
         /// Método que muestra en pantalla las diferentes opciones de temas disponibles.
@@ -100,7 +145,8 @@ namespace ModeloDual_NET_Framework
             }
             else
             {
-                MessageBox.Show("No existe el registro solicitado.");
+                labelEstadoMensajeNormal("No existe Registro");
+                //MessageBox.Show("No existe el registro solicitado.");
             }
             
             
@@ -122,15 +168,41 @@ namespace ModeloDual_NET_Framework
                 act.Descripcion = tBoxDescAct.Text;
                 act.Horas = double.Parse(tboxHorasAct.Text);
 
-            }catch(Exception ex)
+                if (consulta.existeActividad(act, tema))
+                {
+                    Boolean respuesta = MessageBoxBtnActualizar(sender, e);
+                    if (respuesta)
+                    {
+                        if (consulta.actualizarActividad(act, tema))
+                        {
+
+                            labelEstadoMensajeBueno("Registro Actualizado");
+                            MessageBox.Show("Se ha actualizado el registro correctamente.");
+
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (consulta.insertarActividad(act, tema))
             {
+                
+                labelEstadoMensajeBueno("Registro Guardado");
+                MessageBox.Show("Se ha guardado el registro correctamente.");
+                
+            }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                
+                labelEstadoMensajeError("Sin guardar");
                 MessageBox.Show(ex.Message);
             }
 
-            if (consulta.insertarActividad(act, tema))
-            {
-                MessageBox.Show("Se ha guardado el registro correctamente.");
-            }
+            
                        
 
         }
@@ -143,6 +215,7 @@ namespace ModeloDual_NET_Framework
         private void cboxTema_SelectedIndexChanged(object sender, EventArgs e)
         {
             limpiarCajas();
+            labelEstadoLimpiar();
         }
 
         /// <summary>
@@ -162,7 +235,9 @@ namespace ModeloDual_NET_Framework
                     if (consulta.eliminarActividad(act, tema))
                     {
                         limpiarCajas();
+                        labelEstadoMensajeBueno("Registro Eliminado");
                         MessageBox.Show("Se ha eliminado el registro.");
+                        
                     }
                 }
             }
@@ -183,6 +258,12 @@ namespace ModeloDual_NET_Framework
         {
             tboxNoAct.Text = "";
             limpiarCajas();
+        }
+
+        private void tboxNoAct_TextChanged(object sender, EventArgs e)
+        {
+            limpiarCajas();
+            labelEstadoLimpiar();
         }
     }
 }
