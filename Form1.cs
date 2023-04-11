@@ -28,6 +28,12 @@ namespace ModeloDual_NET_Framework
             this.Text = "Actividades Modelo Dual";
         }
 
+        /// <summary>
+        /// Método que muestra un mansaje con opciones para aceptar eliminar o no un registro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
         private Boolean MessageBoxBtnAceptar_cancelar_Click(object sender, EventArgs e)
         {
             DialogResult resultado;
@@ -36,6 +42,12 @@ namespace ModeloDual_NET_Framework
             return resultado == DialogResult.OK;
         }
 
+        /// <summary>
+        /// Método que muestra un mensaje para saber si se quiere actualizar el registro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
         private Boolean MessageBoxBtnActualizar(object sender, EventArgs e)
         {
             DialogResult resultado;
@@ -44,7 +56,9 @@ namespace ModeloDual_NET_Framework
             return resultado == DialogResult.OK;
         }
 
-
+        /// <summary>
+        /// Método que limpia en pantalla los mensajes de estado.
+        /// </summary>
         private void labelEstadoLimpiar()
         {
             labelMensajeEstado.Text = "";
@@ -52,6 +66,10 @@ namespace ModeloDual_NET_Framework
             labelMensajeEstado.ForeColor = Color.Black;
         }
 
+        /// <summary>
+        /// Método que expresa un mensaje satisfactorio según una accion del programa.
+        /// </summary>
+        /// <param name="mensaje"></param>
         private void labelEstadoMensajeBueno(String mensaje)
         {
             labelMensajeEstado.Text = mensaje;
@@ -59,6 +77,10 @@ namespace ModeloDual_NET_Framework
             labelMensajeEstado.ForeColor = Color.Green;
         }
 
+        /// <summary>
+        /// Método que muestra un mensaje de estado de error en pantalla.
+        /// </summary>
+        /// <param name="mensaje"></param>
         private void labelEstadoMensajeError(String mensaje)
         {
             labelMensajeEstado.Text = mensaje;
@@ -66,12 +88,21 @@ namespace ModeloDual_NET_Framework
             labelMensajeEstado.ForeColor = Color.Red;
         }
 
+        /// <summary>
+        /// Método que imprime un mensaje en pantalla advirtiendo las acciones que se están realizando.
+        /// </summary>
+        /// <param name="mensaje"></param>
         private void labelEstadoMensajeAdvertencia(String mensaje)
         {
             labelMensajeEstado.Text = mensaje;
             labelMensajeEstado.Visible = true;
             labelMensajeEstado.ForeColor = Color.Orange;
         }
+
+        /// <summary>
+        /// Simple mensaje en pantalla para notificar algo.
+        /// </summary>
+        /// <param name="mensaje"></param>
         private void labelEstadoMensajeNormal(String mensaje)
         {
             labelMensajeEstado.Text = mensaje;
@@ -100,6 +131,9 @@ namespace ModeloDual_NET_Framework
             }
         }
 
+        /// <summary>
+        /// Método que limpia los textos de las cajas en el formulario.
+        /// </summary>
         public void limpiarCajas()
         {
             //tboxNoAct.Text = "";
@@ -109,7 +143,11 @@ namespace ModeloDual_NET_Framework
             
         }
 
-
+        /// <summary>
+        /// Método sin función por ahora....
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -137,7 +175,7 @@ namespace ModeloDual_NET_Framework
             limpiarCajas();
             if (act.Id <= 0)
             {
-                labelEstadoMensajeError("El id debe ser mayor a 0");
+                labelEstadoMensajeError("Solo se puede buscar IDs mayores a 0.");
             }
             else if (consulta.buscarActividad(act, tema))
             {
@@ -174,7 +212,7 @@ namespace ModeloDual_NET_Framework
 
                 if(act.Id <= 0)
                 {
-                    labelEstadoMensajeError("El id debe ser mayor a 0");
+                    labelEstadoMensajeError("Solo se puede guardar IDs Mayores a 0.");
                 }
                 else if (consulta.existeActividad(act, tema))
                 {
@@ -237,8 +275,15 @@ namespace ModeloDual_NET_Framework
             {
                 tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
                 act.Id = int.Parse(tboxNoAct.Text);
-
-                if (MessageBoxBtnAceptar_cancelar_Click(sender, e))
+                if (act.Id <= 0 )
+                {
+                    labelEstadoMensajeError("Id no válido para eliminar.");
+                }
+                else if (!consulta.existeActividad(act, tema))
+                {
+                    labelEstadoMensajeNormal("No hay registro para eliminar.");
+                }
+                else if (MessageBoxBtnAceptar_cancelar_Click(sender, e))
                 {
                     if (consulta.eliminarActividad(act, tema))
                     {
@@ -268,6 +313,11 @@ namespace ModeloDual_NET_Framework
             limpiarCajas();
         }
 
+        /// <summary>
+        /// Método que detecta cuando el textBox del id ha sido modificado.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tboxNoAct_TextChanged(object sender, EventArgs e)
         {
             //limpiarCajas();
