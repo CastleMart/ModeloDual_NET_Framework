@@ -22,7 +22,6 @@ namespace ModeloDual_NET_Framework
                     cadenaConexion,
                     datos = "";
 
-
             cadenaConexion = "Database="+ bd +"; Data Source = " + servidor + "; port=" + puerto + "; user id =" + usuario + "; password=" + password + ";";
 
             
