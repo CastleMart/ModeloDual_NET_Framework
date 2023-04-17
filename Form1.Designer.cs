@@ -56,7 +56,6 @@
             this.btnBuscarAct.TabIndex = 0;
             this.btnBuscarAct.Text = "Buscar";
             this.btnBuscarAct.UseVisualStyleBackColor = false;
-            this.btnBuscarAct.Click += new System.EventHandler(this.btnBuscarAct_Click);
             // 
             // groupBox1
             // 
@@ -102,7 +101,6 @@
             this.btnLimpiarAct.TabIndex = 14;
             this.btnLimpiarAct.Text = "Limpiar";
             this.btnLimpiarAct.UseVisualStyleBackColor = true;
-            this.btnLimpiarAct.Click += new System.EventHandler(this.btnLimpiarAct_Click);
             // 
             // btnEliminarAct
             // 
@@ -113,7 +111,6 @@
             this.btnEliminarAct.TabIndex = 13;
             this.btnEliminarAct.Text = "Eliminar";
             this.btnEliminarAct.UseVisualStyleBackColor = false;
-            this.btnEliminarAct.Click += new System.EventHandler(this.btnEliminarAct_Click);
             // 
             // btnGuardarAct
             // 
@@ -124,7 +121,6 @@
             this.btnGuardarAct.TabIndex = 11;
             this.btnGuardarAct.Text = "Guardar";
             this.btnGuardarAct.UseVisualStyleBackColor = false;
-            this.btnGuardarAct.Click += new System.EventHandler(this.btnGuardarAct_Click);
             // 
             // cboxTema
             // 
@@ -135,7 +131,6 @@
             this.cboxTema.Name = "cboxTema";
             this.cboxTema.Size = new System.Drawing.Size(188, 23);
             this.cboxTema.TabIndex = 10;
-            this.cboxTema.SelectedIndexChanged += new System.EventHandler(this.cboxTema_SelectedIndexChanged);
             // 
             // tBoxDescAct
             // 
@@ -168,7 +163,6 @@
             this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Tema";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -217,7 +211,6 @@
             this.tboxNoAct.Name = "tboxNoAct";
             this.tboxNoAct.Size = new System.Drawing.Size(40, 21);
             this.tboxNoAct.TabIndex = 1;
-            this.tboxNoAct.TextChanged += new System.EventHandler(this.tboxNoAct_TextChanged);
             // 
             // Form1
             // 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ModeloDual_NET_Framework.Controlador
 {
-    internal class CtrlActividad
+    internal class CtrlActividad 
     {
         private Actividad act = new Actividad();
         private Tema tema = new Tema();
@@ -24,11 +24,13 @@ namespace ModeloDual_NET_Framework.Controlador
             this.tema = tema;
             this.consulta = consulta;
             this.formAct = formAct;
-
             this.formAct.btnGuardarAct.Click += new EventHandler(btnGuardarAct_Click);
             this.formAct.btnBuscarAct.Click += new EventHandler(btnBuscarAct_Click);
             this.formAct.btnLimpiarAct.Click += new EventHandler(btnLimpiarAct_Click);
             this.formAct.btnEliminarAct.Click += new EventHandler (btnEliminarAct_Click);
+            this.formAct.cboxTema.SelectedIndexChanged += new EventHandler(this.cboxTema_SelectedIndexChanged);
+            this.formAct.tboxNoAct.TextChanged += new EventHandler(this.tboxNoAct_TextChanged);
+            
 
         }
 
@@ -36,6 +38,7 @@ namespace ModeloDual_NET_Framework.Controlador
         {
             this.formAct.Text = " Modelo Dual CTRL";
             this.formAct.Location = new Point(0,0);
+            categoriasTemas();
 
         }
 
