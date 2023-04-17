@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ModeloDual_NET_Framework.Controlador
 {
@@ -16,12 +18,24 @@ namespace ModeloDual_NET_Framework.Controlador
         private Form1 formAct;
         private DataTable dt = new DataTable();
 
-        public CtrlActividad(Actividad act, Tema tema, ConsultaActividad consulta,Form1 formAct)
+        public CtrlActividad(Actividad act, Tema tema, ConsultaActividad consulta, Form1 formAct)
         {
             this.act = act;
             this.tema = tema;
             this.consulta = consulta;
             this.formAct = formAct;
+
+            this.formAct.btnGuardarAct.Click += new EventHandler(btnGuardarAct_Click);
+            this.formAct.btnBuscarAct.Click += new EventHandler(btnBuscarAct_Click);
+            this.formAct.btnLimpiarAct.Click += new EventHandler(btnLimpiarAct_Click);
+            this.formAct.btnEliminarAct.Click += new EventHandler (btnEliminarAct_Click);
+
+        }
+
+        public void iniciar()
+        {
+            this.formAct.Text = " Modelo Dual CTRL";
+            this.formAct.Location = new Point(0,0);
 
         }
 
@@ -59,9 +73,9 @@ namespace ModeloDual_NET_Framework.Controlador
         /// </summary>
         private void labelEstadoLimpiar()
         {
-            labelMensajeEstado.Text = "";
-            labelMensajeEstado.Visible = false;
-            labelMensajeEstado.ForeColor = Color.Black;
+            this.formAct.labelMensajeEstado.Text = "";
+            this.formAct.labelMensajeEstado.Visible = false;
+            this.formAct.labelMensajeEstado.ForeColor = Color.Black;
         }
 
         /// <summary>
@@ -70,9 +84,9 @@ namespace ModeloDual_NET_Framework.Controlador
         /// <param name="mensaje"></param>
         private void labelEstadoMensajeBueno(String mensaje)
         {
-            labelMensajeEstado.Text = mensaje;
-            labelMensajeEstado.Visible = true;
-            labelMensajeEstado.ForeColor = Color.Green;
+            this.formAct.labelMensajeEstado.Text = mensaje;
+            this.formAct.labelMensajeEstado.Visible = true;
+            this.formAct.labelMensajeEstado.ForeColor = Color.Green;
         }
 
         /// <summary>
@@ -81,9 +95,9 @@ namespace ModeloDual_NET_Framework.Controlador
         /// <param name="mensaje"></param>
         private void labelEstadoMensajeError(String mensaje)
         {
-            labelMensajeEstado.Text = mensaje;
-            labelMensajeEstado.Visible = true;
-            labelMensajeEstado.ForeColor = Color.Red;
+            this.formAct.labelMensajeEstado.Text = mensaje;
+            this.formAct.labelMensajeEstado.Visible = true;
+            this.formAct.labelMensajeEstado.ForeColor = Color.Red;
         }
 
         /// <summary>
@@ -92,9 +106,9 @@ namespace ModeloDual_NET_Framework.Controlador
         /// <param name="mensaje"></param>
         private void labelEstadoMensajeAdvertencia(String mensaje)
         {
-            labelMensajeEstado.Text = mensaje;
-            labelMensajeEstado.Visible = true;
-            labelMensajeEstado.ForeColor = Color.Orange;
+            this.formAct.labelMensajeEstado.Text = mensaje;
+            this.formAct.labelMensajeEstado.Visible = true;
+            this.formAct.labelMensajeEstado.ForeColor = Color.Orange;
         }
 
         /// <summary>
@@ -103,9 +117,9 @@ namespace ModeloDual_NET_Framework.Controlador
         /// <param name="mensaje"></param>
         private void labelEstadoMensajeNormal(String mensaje)
         {
-            labelMensajeEstado.Text = mensaje;
-            labelMensajeEstado.Visible = true;
-            labelMensajeEstado.ForeColor = Color.Blue;
+            this.formAct.labelMensajeEstado.Text = mensaje;
+            this.formAct.labelMensajeEstado.Visible = true;
+            this.formAct.labelMensajeEstado.ForeColor = Color.Blue;
         }
 
 
@@ -114,19 +128,19 @@ namespace ModeloDual_NET_Framework.Controlador
         /// </summary>
         public void categoriasTemas()
         {
-            cboxTema.DataSource = null;
-            cboxTema.Items.Clear();
+            this.formAct.cboxTema.DataSource = null;
+            this.formAct.cboxTema.Items.Clear();
 
             try
             {
                 consulta.busquedaTemaComboBox(dt);
-                cboxTema.ValueMember = "idTema";
-                cboxTema.DisplayMember = "nombreTema";
-                cboxTema.DataSource = dt;
+                this.formAct.cboxTema.ValueMember = "idTema";
+                this.formAct.cboxTema.DisplayMember = "nombreTema";
+                this.formAct.cboxTema.DataSource = dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Text, ex.Message);
+                MessageBox.Show(this.formAct.Text, ex.Message);
             }
         }
 
@@ -136,21 +150,12 @@ namespace ModeloDual_NET_Framework.Controlador
         public void limpiarCajas()
         {
             //tboxNoAct.Text = "";
-            tboxNombreAct.Text = "";
-            tboxHorasAct.Text = "";
-            tBoxDescAct.Text = "";
+            this.formAct.tboxNombreAct.Text = "";
+            this.formAct.tboxHorasAct.Text = "";
+            this.formAct.tBoxDescAct.Text = "";
 
         }
 
-        /// <summary>
-        /// Método sin función por ahora....
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// Método que realiza las opciones del botón buscar.
@@ -163,8 +168,8 @@ namespace ModeloDual_NET_Framework.Controlador
 
             try
             {
-                act.Id = int.Parse(tboxNoAct.Text);
-                tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
+                act.Id = int.Parse(this.formAct.tboxNoAct.Text);
+                tema.Id = int.Parse(this.formAct.cboxTema.SelectedValue.ToString());
                 labelEstadoLimpiar();
             }
             catch (Exception ex)
@@ -179,10 +184,10 @@ namespace ModeloDual_NET_Framework.Controlador
             else if (consulta.buscarActividad(act, tema))
             {
 
-                tboxNoAct.Text = act.Id.ToString();
-                tboxNombreAct.Text = act.Nombre;
-                tBoxDescAct.Text = act.Descripcion;
-                tboxHorasAct.Text = act.Horas.ToString();
+                this.formAct.tboxNoAct.Text = act.Id.ToString();
+                this.formAct.tboxNombreAct.Text = act.Nombre;
+                this.formAct.tBoxDescAct.Text = act.Descripcion;
+                this.formAct.tboxHorasAct.Text = act.Horas.ToString();
             }
             else
             {
@@ -203,11 +208,11 @@ namespace ModeloDual_NET_Framework.Controlador
             try
             {
 
-                tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
-                act.Id = int.Parse(tboxNoAct.Text);
-                act.Nombre = tboxNombreAct.Text;
-                act.Descripcion = tBoxDescAct.Text;
-                act.Horas = double.Parse(tboxHorasAct.Text);
+                tema.Id = int.Parse(this.formAct.cboxTema.SelectedValue.ToString());
+                act.Id = int.Parse(this.formAct.tboxNoAct.Text);
+                act.Nombre = this.formAct.tboxNombreAct.Text;
+                act.Descripcion = this.formAct.tBoxDescAct.Text;
+                act.Horas = double.Parse(this.formAct.tboxHorasAct.Text);
 
                 if (act.Id <= 0)
                 {
@@ -272,8 +277,8 @@ namespace ModeloDual_NET_Framework.Controlador
         {
             try
             {
-                tema.Id = int.Parse(cboxTema.SelectedValue.ToString());
-                act.Id = int.Parse(tboxNoAct.Text);
+                tema.Id = int.Parse(this.formAct.cboxTema.SelectedValue.ToString());
+                act.Id = int.Parse(this.formAct.tboxNoAct.Text);
                 if (act.Id <= 0)
                 {
                     labelEstadoMensajeError("Id no válido para eliminar.");
@@ -308,7 +313,7 @@ namespace ModeloDual_NET_Framework.Controlador
         /// <param name="e"></param>
         private void btnLimpiarAct_Click(object sender, EventArgs e)
         {
-            tboxNoAct.Text = "";
+            this.formAct.tboxNoAct.Text = "";
             limpiarCajas();
         }
 

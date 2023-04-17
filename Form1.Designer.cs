@@ -236,23 +236,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnBuscarAct;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tboxNoAct;
-        private System.Windows.Forms.ComboBox cboxTema;
-        private System.Windows.Forms.TextBox tBoxDescAct;
-        private System.Windows.Forms.TextBox tboxHorasAct;
-        private System.Windows.Forms.TextBox tboxNombreAct;
-        private System.Windows.Forms.Button btnLimpiarAct;
-        private System.Windows.Forms.Button btnEliminarAct;
-        private System.Windows.Forms.Button btnGuardarAct;
-        private System.Windows.Forms.Label labelMensajeEstado;
+        public System.Windows.Forms.Button btnBuscarAct;
+        public System.Windows.Forms.Button btnLimpiarAct;
+        public System.Windows.Forms.Button btnEliminarAct;
+        public System.Windows.Forms.Button btnGuardarAct;
+        public System.Windows.Forms.TextBox tboxNoAct;
+        public System.Windows.Forms.ComboBox cboxTema;
+        public System.Windows.Forms.TextBox tBoxDescAct;
+        public System.Windows.Forms.TextBox tboxHorasAct;
+        public System.Windows.Forms.TextBox tboxNombreAct;
+        public System.Windows.Forms.Label labelMensajeEstado;
     }
 }
 

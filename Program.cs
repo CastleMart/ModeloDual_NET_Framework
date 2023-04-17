@@ -22,7 +22,8 @@ namespace ModeloDual_NET_Framework
             ConsultaActividad consulta = new ConsultaActividad();
             Form1 form1 = new Form1();
             CtrlActividad ctrlAct = new CtrlActividad(actividad,tema,consulta,form1);
-
+            ctrlAct.iniciar();
+            form1.Visible = true;
 
             //Console.WriteLine("El servidor es: ");
             //Console.WriteLine(con.retornarMensaje());
