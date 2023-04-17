@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ModeloDual_NET_Framework.Controlador;
+using ModeloDual_NET_Framework.Modelos.Cursos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,12 +17,18 @@ namespace ModeloDual_NET_Framework
         static void Main()
         {
             Conexion con = new Conexion();
+            Actividad actividad = new Actividad();
+            Tema tema = new Tema();
+            ConsultaActividad consulta = new ConsultaActividad();
+            Form1 form1 = new Form1();
+            CtrlActividad ctrlAct = new CtrlActividad(actividad,tema,consulta,form1);
+
 
             //Console.WriteLine("El servidor es: ");
             //Console.WriteLine(con.retornarMensaje());
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run();
         }
     }
 }
