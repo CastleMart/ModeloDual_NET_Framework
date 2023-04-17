@@ -49,7 +49,12 @@
             // 
             // btnBuscarAct
             // 
-            this.btnBuscarAct.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnBuscarAct.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnBuscarAct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarAct.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnBuscarAct.FlatAppearance.BorderSize = 2;
+            this.btnBuscarAct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscarAct.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarAct.Location = new System.Drawing.Point(451, 57);
             this.btnBuscarAct.Name = "btnBuscarAct";
             this.btnBuscarAct.Size = new System.Drawing.Size(75, 39);
@@ -95,6 +100,11 @@
             // 
             // btnLimpiarAct
             // 
+            this.btnLimpiarAct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarAct.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLimpiarAct.FlatAppearance.BorderSize = 2;
+            this.btnLimpiarAct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimpiarAct.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarAct.Location = new System.Drawing.Point(377, 366);
             this.btnLimpiarAct.Name = "btnLimpiarAct";
             this.btnLimpiarAct.Size = new System.Drawing.Size(75, 39);
@@ -104,7 +114,13 @@
             // 
             // btnEliminarAct
             // 
-            this.btnEliminarAct.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEliminarAct.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminarAct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarAct.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnEliminarAct.FlatAppearance.BorderSize = 2;
+            this.btnEliminarAct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarAct.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarAct.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEliminarAct.Location = new System.Drawing.Point(235, 366);
             this.btnEliminarAct.Name = "btnEliminarAct";
             this.btnEliminarAct.Size = new System.Drawing.Size(75, 39);
@@ -114,7 +130,12 @@
             // 
             // btnGuardarAct
             // 
-            this.btnGuardarAct.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGuardarAct.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnGuardarAct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarAct.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnGuardarAct.FlatAppearance.BorderSize = 2;
+            this.btnGuardarAct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardarAct.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarAct.Location = new System.Drawing.Point(77, 366);
             this.btnGuardarAct.Name = "btnGuardarAct";
             this.btnGuardarAct.Size = new System.Drawing.Size(75, 39);
@@ -216,10 +237,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
