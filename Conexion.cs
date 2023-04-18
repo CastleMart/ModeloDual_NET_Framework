@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,20 +15,11 @@ namespace ModeloDual_NET_Framework
         private String mensaje;
         public static MySqlConnection conectar()
         {
-            String servidor = "localhost",
-                    puerto = "3306",
-                    usuario = "root",
-                    bd = "modelodual_db",
-                    password = "marioantonio2312",
-                    cadenaConexion,
-                    datos = "";
-
-            cadenaConexion = "Database="+ bd +"; Data Source = " + servidor + "; port=" + puerto + "; user id =" + usuario + "; password=" + password + ";";
-
-            
+                    
 
             try
             {
+                var cadenaConexion = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                 MySqlConnection conexion = new MySqlConnection(cadenaConexion);
                 return conexion;
             }
