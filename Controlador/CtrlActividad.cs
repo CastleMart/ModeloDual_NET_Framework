@@ -24,12 +24,14 @@ namespace ModeloDual_NET_Framework.Controlador
             this.tema = tema;
             this.consulta = consulta;
             this.formAct = formAct;
-
+            categoriasTemas();
+            labelEstadoLimpiar();
             this.formAct.btnGuardarAct.Click += new EventHandler(btnGuardarAct_Click);
             this.formAct.btnBuscarAct.Click += new EventHandler(btnBuscarAct_Click);
             this.formAct.btnLimpiarAct.Click += new EventHandler(btnLimpiarAct_Click);
             this.formAct.btnEliminarAct.Click += new EventHandler (btnEliminarAct_Click);
-
+            this.formAct.cboxTema.SelectedIndexChanged += new System.EventHandler(this.cboxTema_SelectedIndexChanged);
+            this.formAct.tboxNoAct.TextChanged += new System.EventHandler(this.tboxNoAct_TextChanged);
         }
 
         /// <summary>

@@ -69,6 +69,7 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
             finally
             {
                 reader.Close();
+                conn.Close();
             }
 
 
@@ -117,6 +118,7 @@ namespace ModeloDual_NET_Framework.Modelos.Cursos
             finally
             {
                 reader.Close();
+                conn.Close();
             }
 
             return seHizo;

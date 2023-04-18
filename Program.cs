@@ -29,7 +29,7 @@ namespace ModeloDual_NET_Framework
             //Console.WriteLine(con.retornarMensaje());
             Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            Application.Run(form1);
         }
     }
 }
